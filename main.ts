@@ -28,6 +28,7 @@ let passage_piéton_2 = 0
 let verte_1 = 0
 let passage_piéton = 0
 passage_piéton = 0
+orange()
 basic.clearScreen()
 basic.forever(function () {
     if (passage_piéton == 0) {
