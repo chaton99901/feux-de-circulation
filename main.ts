@@ -1,12 +1,18 @@
 let verte_1 = 0
+let passage_piéton = 0
 function jaune () {
     pins.digitalWritePin(DigitalPin.P0, 0)
     pins.digitalWritePin(DigitalPin.P1, 1)
     pins.digitalWritePin(DigitalPin.P2, 0)
 }
 input.onButtonPressed(Button.A, function () {
-    if (0 == 0) {
-    	
+    if (verte_1 == 0) {
+        passage_piéton = 1
+        blanche()
+        basic.pause(7000)
+        orange()
+        basic.pause(3000)
+        passage_piéton = 0
     }
 })
 function verte () {
@@ -28,12 +34,14 @@ function rouge () {
     pins.digitalWritePin(DigitalPin.P2, 1)
 }
 basic.forever(function () {
-    verte()
-    verte_1 = 1
-    basic.pause(10000)
-    jaune()
-    basic.pause(5000)
-    rouge()
-    basic.pause(10000)
-    verte_1 = 0
+    if (passage_piéton == 0) {
+        verte()
+        verte_1 = 1
+        basic.pause(10000)
+        jaune()
+        basic.pause(5000)
+        rouge()
+        verte_1 = 0
+        basic.pause(10000)
+    }
 })
