@@ -71,9 +71,9 @@ basic.forever(function () {
     if (verte_1 == 0 && passage_piéton == 1) {
         passage_piéton_2 += 1
         blanche()
-        basic.pause(7000)
+        basic.pause(5000)
         orange()
-        basic.pause(3000)
+        basic.pause(5000)
         passage_piéton_2 += 0
         passage_piéton = 0
     }
