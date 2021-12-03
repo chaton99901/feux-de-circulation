@@ -24,10 +24,10 @@ function rouge () {
     pins.digitalWritePin(DigitalPin.P1, 0)
     pins.digitalWritePin(DigitalPin.P2, 1)
 }
-let passage_piéton_2 = 0
-let verte_1 = 0
 let passage_piéton = 0
 passage_piéton = 0
+let passage_piéton_2 = 0
+let verte_1 = 0
 orange()
 basic.clearScreen()
 basic.forever(function () {
@@ -37,8 +37,8 @@ basic.forever(function () {
         basic.pause(5000)
         jaune()
         basic.pause(2500)
-        verte_1 = 0
         rouge()
+        verte_1 = 0
         basic.pause(5000)
     }
     if (verte_1 == 0 && passage_piéton == 1) {
@@ -46,13 +46,13 @@ basic.forever(function () {
         blanche()
         basic.pause(7000)
         passage_piéton_2 += 0
+        passage_piéton = 0
         orange()
         basic.pause(3000)
-        passage_piéton = 0
     }
 })
 basic.forever(function () {
-    if (verte_1 == 0 && passage_piéton == 1 && passage_piéton_2 == 1) {
+    if (passage_piéton_2 == 1 && passage_piéton == 1 && verte_1 == 0) {
         basic.showNumber(9)
         basic.pause(350)
         basic.showNumber(8)
